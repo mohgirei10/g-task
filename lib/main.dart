@@ -258,7 +258,7 @@ class _TodoDashboardState extends State<TodoDashboard> {
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Center(
                   child: Text(
-                    "Developed by Mohammed Girei",
+                    "Developed by Mohammed Girei v1.0",
                     style: GoogleFonts.plusJakartaSans(
                       fontSize: 12,
                       fontWeight: FontWeight.w600,
