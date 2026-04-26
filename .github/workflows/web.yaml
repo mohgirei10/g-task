@@ -3,7 +3,7 @@ name: Flutter Web Deploy
 on:
   push:
     branches:
-      - main  # This ensures it runs whenever you push code to your main branch
+      - main
 
 jobs:
   build:
@@ -16,14 +16,19 @@ jobs:
         with:
           channel: 'stable'
 
+      # IMPORTANT: Use 'flutter' instead of 'dart'
       - name: Install dependencies
         run: flutter pub get
+        # If your pubspec.yaml is inside a folder, uncomment the next line:
+        # working-directory: ./flutter_application_1 
 
       - name: Build Web
         run: flutter build web --release --base-href "/g-task/"
+        # working-directory: ./flutter_application_1
 
       - name: Upload to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
+          publish_dir: ./build/web # If in subfolder, use ./flutter_application_1/build/web
+          
